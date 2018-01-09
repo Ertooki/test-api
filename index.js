@@ -10,6 +10,8 @@ var tcpp = require('tcp-ping');
 // Config file
 var config = require('./config');
 
+const PORT = process.env.PORT || 3000
+
 // Configuring DB
 mongoose.connect(config.mongo_uri, {useMongoClient: true, promiseLibrary: require('bluebird')});
 
@@ -104,5 +106,4 @@ function verifyToken(req,res,next){
   else res.json({status: 500, msg: "Not authorized!"});
 }
 
-var server = http.createServer(app);
-server.listen(3000);
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`))
