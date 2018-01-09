@@ -48,10 +48,11 @@ app.post('/signin', function(req,res){
   })
 });
 
-app.get('/info', verifyToken, function(req,res){
-  if(!req.query.id) res.json({status:500, msg:"Not sufficient params!"});
+app.get('/info/:id', verifyToken, function(req,res){
+  console.log(req.params.id);
+  if(!req.params.id) res.json({status:500, msg:"Not sufficient params!"});
   else {
-    User.findById(req.query.id)
+    User.findById(req.params.id)
       .then(function(user){
         if(user) res.json({status:200,user:user.id});
         else res.json({status:500,msg:"User not found"});
@@ -81,7 +82,7 @@ app.get('/logout', verifyToken, function(req,res){
           else if(req.query.all == 'false') return Token.removeOne(token.token);
         })
         .then(function(removed){
-          return res.json({status: 200, rm: removed});
+          return res.json({status: 200, rm: "Logged out"});
         })
         .catch(function(error){
           if (isJSON(error.message)) return res.json(JSON.parse(error.message));
