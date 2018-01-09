@@ -1,0 +1,29 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "This is test API",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express-validator": "^4.3.0",
+    "express": "^4.16.2",
+    "http": "^0.0.0",
+    "is-json": "^2.0.1",
+    "libphonenumber-js": "^0.4.48",
+    "mongoose": "^4.13.9",
+    "morgan": "^1.9.0",
+    "regex": "^0.1.1",
+    "regex-email": "^1.0.2",
+    "tcp-ping": "^0.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
